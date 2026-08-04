@@ -2,112 +2,112 @@
 
 ![Peeps Generator](https://res.cloudinary.com/dcav0ojcf/image/upload/v1767064041/videos%20de%20webs%28en%20uso%2C%20no%20borrar%29/hero_kkpcfd.jpg)
 
-**Peeps Generator** es una librería pensada para desarrolladores que necesitan crear avatares divertidos y únicos en sus aplicaciones.  
-Con ella podés:
+**Peeps Generator** is a library designed for developers who need to create fun, unique avatars in their applications.  
+With it, you can:
 
-- 🎲 **Generar avatares aleatorios** o determinísticos usando un `seed`.
-- 🎨 **Personalizar cada parte del avatar** (cabeza, cara, accesorios, barba/bigote, fondo, colores, etc).
-- 🖼️ **Renderizar en SVG** listo para ser enviado al frontend y renderizado en el navegador.
-- 📤 **Exportar a PNG, JPEG, WebP o AVIF** para guardar o compartir en cualquier plataforma.
-- ⚙️ **Integrar un editor visual en tu frontend**, generando los avatares desde el servidor.
+- 🎲 **Generate random or deterministic avatars** using a `seed`.
+- 🎨 **Customize every part of the avatar** (head, face, accessories, facial hair, background, colors, etc.).
+- 🖼️ **Render SVG** ready to be sent to the frontend and displayed in the browser.
+- 📤 **Export to PNG, JPEG, WebP, or AVIF** to save or share on any platform.
+- ⚙️ **Integrate a visual editor into your frontend**, generating avatars from the server.
 
-La librería está diseñada para ser **simple, modular y extensible**: podés usarla tanto en proyectos Node.js como en aplicaciones web modernas.
+The library is designed to be **simple, modular, and extensible**: you can use it in both Node.js projects and modern web applications.
 
-## 🔗 Enlaces oficiales
+## 🔗 Official links
 
-- 📦 **Repositorio en GitHub**  
+- 📦 **GitHub repository**  
   https://github.com/Fr4nco77/Peeps-Generator
 
-- 🎨 **Editor visual online (demo)**  
+- 🎨 **Online visual editor (demo)**  
   https://peep-generator.vercel.app/
 
-## 📦 Instalación
+## 📦 Installation
 
-Puedes instalar **Peeps Generator** con tu gestor de paquetes favorito:
+You can install **Peeps Generator** with your preferred package manager:
 
-### Usando pnpm
+### Using pnpm
 
 ```bash
 pnpm add peeps-generator
 ```
 
-### Usando npm
+### Using npm
 
 ```bash
 npm install peeps-generator
 ```
 
-### Usando yarn
+### Using yarn
 
 ```bash
 yarn add peeps-generator
 ```
 
-### Usando bun
+### Using bun
 
 ```bash
 bun add peeps-generator
 ```
 
-## 🧠 Entorno de ejecución (importante)
+## 🧠 Runtime environment (important)
 
-**Peeps Generator está diseñada para ejecutarse en entornos Node.js.**
+**Peeps Generator is designed to run in Node.js environments.**
 
-La librería utiliza APIs nativas de Node para funcionar correctamente, entre ellas:
+The library uses native Node APIs to work correctly, including:
 
-- Acceso al sistema de archivos para cargar los assets SVG
-- Procesamiento y composición de imágenes
-- Exportación a formatos rasterizados mediante `sharp`
+- File system access to load SVG assets
+- Image processing and composition
+- Export to rasterized formats via `sharp`
 
-Por esta razón, la generación del avatar **no ocurre en el navegador**, sino en el entorno donde corre Node.
+For this reason, avatar generation **does not happen in the browser**, but in the environment where Node is running.
 
-### ✔️ Entornos soportados
+### ✔️ Supported environments
 
 - Node.js
 - Backends (Express, Fastify, Nest, etc.)
-- Server-Side Rendering (SSR) ejecutado en Node, por ejemplo:
+- Server-side rendering (SSR) running on Node, for example:
   - Next.js (`runtime: "nodejs"`)
   - Remix (Node adapter)
-  - Astro con SSR en Node
-- Scripts, workers o pipelines de generación de imágenes
+  - Astro with SSR on Node
+- Scripts, workers, or image generation pipelines
 
-### ❌ Entornos no soportados directamente
+### ❌ Directly unsupported environments
 
-- Navegador (browser puro)
-- Aplicaciones React/Vite ejecutadas solo del lado del cliente
+- Browser-only environments
+- React/Vite applications running only on the client side
 - Edge runtimes (Cloudflare Workers, Vercel Edge, etc.)
 
-> Si querés usar Peeps Generator en una aplicación web,  
-> la generación del avatar debe realizarse **del lado del servidor**,  
-> y luego enviar el SVG o la imagen resultante al frontend.
+> If you want to use Peeps Generator in a web application,  
+> avatar generation must happen **on the server side**,  
+> and then the SVG or resulting image should be sent to the frontend.
 
-Esta decisión es intencional y permite que la librería sea **simple, predecible y consistente**, evitando duplicar lógica o introducir dependencias específicas del navegador.
+This decision is intentional and allows the library to remain **simple, predictable, and consistent**, while avoiding duplicated logic or browser-specific dependencies.
 
-## 🎨 Editor visual (demo interactiva)
+## 🎨 Visual editor (interactive demo)
 
-Si estás construyendo un frontend o tenés dudas sobre cómo integrar **Peeps Generator** en una aplicación web,  
-podés probar el **editor visual online**:
+If you are building a frontend or have questions about how to integrate **Peeps Generator** into a web application,  
+you can try the **online visual editor**:
 
 👉 https://peep-generator.vercel.app/
 
-Este editor:
+This editor:
 
-- Genera los avatares desde el **servidor**
-- Renderiza el SVG en el navegador
-- Permite activar o desactivar capas
-- Cambiar tamaños, seed y combinaciones
-- Descargar el avatar en distintos formatos
+- Generates avatars from the **server**
+- Renders the SVG in the browser
+- Allows you to enable or disable layers
+- Changes sizes, seeds, and combinations
+- Downloads the avatar in different formats
 
-Es un ejemplo real de cómo usar la librería en un entorno **Next.js con SSR**,  
-y puede servirte como referencia arquitectónica si querés implementar tu propio editor o configurador.
+It is a real example of how to use the library in a **Next.js SSR environment**,  
+and it can serve as an architectural reference if you want to build your own editor or configurator.
 
-## 🧩 Uso
+## 🧩 Usage
 
-Con **Peeps Generator**, todo comienza con una sola función: `createPeep`.  
-Es el núcleo de la librería: allí vive la lógica que genera los avatares peeps y compone cada una de sus partes.
-Su resultado es un string que contiene un SVG completo, ya compuesto y listo para renderizar o exportar.
+With **Peeps Generator**, everything starts with a single function: `createPeep`.  
+It is the core of the library: this is where the logic to generate peep avatars and compose each part lives.
+Its result is a string containing a complete SVG, already composed and ready to render or export.
 
-### Crea tu primer peep
+### Create your first peep
 
 ```ts
 import { createPeep } from "peeps-generator";
@@ -115,21 +115,21 @@ import { createPeep } from "peeps-generator";
 const svg = createPeep();
 ```
 
-Este llamado genera un peep aleatorio con una configuración mínima, donde solo se renderizan las capas esenciales:
+This call generates a random peep with minimal configuration, where only the essential layers are rendered:
 
-- Un avatar monocromático
-- Sin background
-- Sin accesorios
-- Sin vello facial
+- A monochrome avatar
+- No background
+- No accessories
+- No facial hair
 
 ---
 
-### Controlar las capas del avatar (`enable*`)
+### Control avatar layers (`enable*`)
 
-Un peep se construye por capas.  
-Cada capa puede existir o no, según tu intención.
+A peep is built in layers.  
+Each layer may or may not exist depending on your intention.
 
-Para eso están las opciones `enable*`.
+That is what the `enable*` options are for.
 
 ```ts
 import { createPeep } from "peeps-generator";
@@ -142,27 +142,27 @@ const svg = createPeep({
 });
 ```
 
-Estas opciones indican **qué partes pueden aparecer** en el avatar:
+These options indicate **which parts may appear** in the avatar:
 
 - `enableAccessories`  
-  Permite que el peep incluya accesorios como anteojos.
+  Allows the peep to include accessories such as glasses.
 
 - `enableFacialHair`  
-  Habilita la generación de barba o bigote.
+  Enables the generation of beards or mustaches.
 
 - `enableColors`  
-  Permite que el sistema aplique colores de piel y cabello.
+  Allows the system to apply skin and hair colors.
 
 - `enableBackground`  
-  Agrega un color de fondo al SVG.
+  Adds a background color to the SVG.
 
-Si una opción no está habilitada, esa capa simplemente no se renderiza.
+If an option is not enabled, that layer simply is not rendered.
 
 ---
 
-### Controlar el tamaño del avatar
+### Control avatar size
 
-Podés definir el tamaño final del avatar usando la opción `size`.
+You can define the final size of the avatar using the `size` option.
 
 ```ts
 import { createPeep } from "peeps-generator";
@@ -172,32 +172,32 @@ const svg = createPeep({
 });
 ```
 
-Esto genera un avatar de **128 × 128 píxeles.**
+This generates an avatar of **128 × 128 pixels.**
 
-#### ¿Qué hace size?
+#### What does `size` do?
 
-- Define el ancho y alto del SVG final.
-- Mantiene todas las proporciones del avatar.
-- No afecta la lógica de generación ni las partes internas.
+- Defines the width and height of the final SVG.
+- Keeps all avatar proportions intact.
+- Does not affect the generation logic or internal parts.
 
-#### Valor por defecto
+#### Default value
 
-Si no se especifica size, se genera un avatar de **600x600 pixeles**.
+If `size` is not specified, an avatar of **600 × 600 pixels** is generated.
 
-#### Ejemplos comunes
+#### Common examples
 
 ```ts
-createPeep({ size: 64 }); // iconos, listas
+createPeep({ size: 64 }); // icons, lists
 createPeep({ size: 256 }); // previews
-createPeep({ size: 1024 }); // exportación o impresión
+createPeep({ size: 1024 }); // export or print
 ```
 
 ---
 
-### Usar `seed` generación reproducible
+### Use a reproducible `seed`
 
-El `seed` permite que la generación del peep sea **determinística**.  
-Esto significa que, usando la misma semilla, el resultado visual será siempre el mismo.
+The `seed` allows peep generation to be **deterministic**.  
+This means that using the same seed, the visual result will always be the same.
 
 ```ts
 import { createPeep } from "peeps-generator";
@@ -209,24 +209,24 @@ const svg = createPeep({
 });
 ```
 
-En este ejemplo, el texto `"usuario123"` se utiliza como semilla para la generación.
-Mientras el `seed` no cambie, el peep generado será idéntico en cada ejecución.
+In this example, the text `"usuario123"` is used as the seed for generation.
+As long as the `seed` does not change, the generated peep will be identical on each execution.
 
-Esto es útil para:
+This is useful for:
 
-- Avatares asociados a un usuario
-- Identidades visuales persistentes
-- Sistemas donde el avatar no debe cambiar con el tiempo
+- Avatars associated with a user
+- Persistent visual identities
+- Systems where the avatar must not change over time
 
-Si no se especifica un seed, cada llamada a createPeep puede producir un peep distinto.
+If no seed is specified, each call to `createPeep` may produce a different peep.
 
 ---
 
-### Crear un peep personalizado o parcialmente aleatorio
+### Create a custom or partially random peep
 
-Además de la generación automática, **Peeps Generator** permite definir manualmente algunas o todas las partes del peep y dejar que la librería complete el resto.
+In addition to automatic generation, **Peeps Generator** allows you to manually define some or all parts of the peep and let the library fill in the rest.
 
-Esto se hace usando la opción `peep`.
+This is done using the `peep` option.
 
 ```ts
 import { createPeep } from "peeps-generator";
@@ -243,51 +243,51 @@ const svg = createPeep({
 });
 ```
 
-En este ejemplo:
+In this example:
 
-- La cabeza y la cara están definidas explícitamente
-- El color de cabello y de piel se establecen manualmente
-- Los accesorios se generan de forma aleatoria
-- El color de fondo se genera automáticamente
-
----
-
-#### Opciones de personalización disponibles
-
-Al crear un peep, podés definir de forma opcional cualquiera de las siguientes propiedades dentro de `peep`:
-
-| Propiedad     | Descripción               | Tipo de valor                     |
-| ------------- | ------------------------- | --------------------------------- |
-| `head`        | Tipo de cabeza o peinado  | String de `peepParts.heads`       |
-| `face`        | Expresión facial          | String de `peepParts.faces`       |
-| `hairColor`   | Color del cabello         | String (color CSS)                |
-| `skinColor`   | Color de piel             | String (color CSS)                |
-| `facialHair`  | Tipo de vello facial      | String de `peepParts.facialHair`  |
-| `accessories` | Accesorios                | String de `peepParts.accessories` |
-| `background`  | Color de fondo del avatar | String (color CSS)                |
-
-Estas opciones solo se aplican si la capa correspondiente está habilitada mediante las opciones `enable*`.
+- The head and face are explicitly defined
+- Hair and skin colors are set manually
+- Accessories are generated randomly
+- The background color is generated automatically
 
 ---
 
-#### Personalización completa o parcial
+#### Available customization options
 
-- Si definís **todas** las propiedades, el peep será completamente personalizado y no habrá decisiones aleatorias.
-- Si definís **solo algunas**, la librería generará automáticamente las partes faltantes.
-- Si no definís **ninguna**, el peep se generará de forma completamente aleatoria.
+When creating a peep, you can optionally define any of the following properties inside `peep`:
 
-El sistema solo decide aquellas partes que no fueron especificadas y que están habilitadas mediante las opciones `enable*`.
+| Property      | Description                      | Value type                         |
+| ------------- | -------------------------------- | ---------------------------------- |
+| `head`        | Type of head or hairstyle        | String from `peepParts.heads`      |
+| `face`        | Facial expression                | String from `peepParts.faces`      |
+| `hairColor`   | Hair color                       | String (CSS color)                 |
+| `skinColor`   | Skin color                       | String (CSS color)                 |
+| `facialHair`  | Type of facial hair              | String from `peepParts.facialHair` |
+| `accessories` | Accessories                      | String from `peepParts.accessories`|
+| `background`  | Avatar background color          | String (CSS color)                 |
+
+These options only apply if the corresponding layer is enabled via the `enable*` options.
 
 ---
 
-### Acceso a las partes de un peep
+#### Full or partial customization
 
-**Peeps Generator** expone el listado completo de partes disponibles para cada capa del avatar: cabezas, caras, accesorios y vello facial.
+- If you define **all** properties, the peep will be fully customized and there will be no random decisions.
+- If you define **only some**, the library will automatically generate the missing parts.
+- If you define **none**, the peep will be generated completely randomly.
 
-Estos listados contienen los nombres exactos de cada asset, y representan el universo visual con el que trabaja la biblioteca.  
-Usarlos garantiza que cualquier combinación que elijas sea válida y renderizable.
+The system only decides on the parts that were not specified and that are enabled via the `enable*` options.
 
-Para acceder a estas partes, simplemente importalas desde la biblioteca:
+---
+
+### Accessing peep parts
+
+**Peeps Generator** exposes the complete list of available parts for each avatar layer: heads, faces, accessories, and facial hair.
+
+These lists contain the exact names of each asset and represent the visual universe used by the library.  
+Using them guarantees that any combination you choose is valid and renderable.
+
+To access these parts, simply import them from the library:
 
 ```ts
 import { peepParts } from "peeps-generator";
@@ -295,55 +295,55 @@ import { peepParts } from "peeps-generator";
 const { heads, faces, accessories, facialHair } = peepParts;
 ```
 
-Tener acceso a estas partes permite, por ejemplo:
+Having access to these parts enables, for example:
 
-- Construir editores visuales o configuradores de avatar
-- Crear selectores o formularios guiados
-- Validar entradas del usuario antes de generar un peep
-- Generar previews, catálogos o grids de avatares
-- Limitar o expandir opciones según reglas propias de tu aplicación
+- Building visual editors or avatar configurators
+- Creating guided selectors or forms
+- Validating user input before generating a peep
+- Generating previews, catalogs, or grids of avatars
+- Limiting or expanding options according to your application's own rules
 
-De esta forma, **Peeps Generator** no solo genera avatares:  
-también te da las piezas para diseñar experiencias alrededor de ellos.
+In this way, **Peeps Generator** does not only generate avatars:  
+it also gives you the building blocks to design experiences around them.
 
 ---
 
-### ¿Qué puedo hacer con el SVG que devuelve?
+### What can I do with the SVG it returns?
 
-El resultado de `createPeep` no es un objeto complejo ni una estructura opaca:  
-es **un string SVG puro**.
+The result of `createPeep` is not a complex object or opaque structure:  
+it is a **plain SVG string**.
 
-Ese string es, al mismo tiempo:
+That string is, at the same time:
 
-- Texto que podés guardar, enviar o transformar
-- Una imagen vectorial lista para renderizar
-- Un formato independiente de framework o plataforma
+- Text you can save, send, or transform
+- A vector image ready to render
+- A format independent of framework or platform
 
-Con él podés:
+With it, you can:
 
-- **Renderizarlo directamente en el DOM**:
+- **Render it directly in the DOM**:
 
   ```jsx
   <div dangerouslySetInnerHTML={{ __html: svg }} />
   ```
 
-- **Usarlo como `src` de una imagen** (codificado en base64), sin archivos intermedios.
-- **Guardarlo como archivo `.svg`**, tal como lo devuelve la función.
-- **Convertirlo a otros formatos** como PNG, JPEG, WebP o AVIF, ya sea con las funciones `to*` de la biblioteca o con tus propias herramientas.
-- **Enviarlo por API o almacenarlo en una base de datos**, ya que es solo texto
+- **Use it as the `src` of an image** (base64-encoded) without intermediate files.
+- **Save it as an `.svg` file**, exactly as returned by the function.
+- **Convert it to other formats** such as PNG, JPEG, WebP, or AVIF, either with the library's `to*` functions or with your own tools.
+- **Send it via API or store it in a database**, since it is just text.
 
-## 🖼️ Exportación de imágenes
+## 🖼️ Image export
 
-El resultado de **createPeep** es siempre un SVG.  
-Ese SVG es la fuente original del avatar.
+The result of **createPeep** is always an SVG.  
+That SVG is the original source of the avatar.
 
-Cuando necesitás trabajar con imágenes rasterizadas (píxeles), la biblioteca permite convertir ese SVG a distintos formatos de imagen mediante las funciones `to*`.
+When you need to work with rasterized images (pixels), the library allows you to convert that SVG into different image formats using the `to*` functions.
 
-### Exportación unitaria por formato
+### Per-format export
 
-Si necesitás un formato específico, podés usar directamente las funciones dedicadas:
+If you need a specific format, you can use the dedicated functions directly:
 
-#### Convertir a PNG
+#### Convert to PNG
 
 ```ts
 import { toPNG } from "peeps-generator";
@@ -351,7 +351,7 @@ import { toPNG } from "peeps-generator";
 const pngBuffer = await toPNG(svg);
 ```
 
-#### Convertir a JPEG
+#### Convert to JPEG
 
 ```ts
 import { toJPEG } from "peeps-generator";
@@ -359,7 +359,7 @@ import { toJPEG } from "peeps-generator";
 const jpegBuffer = await toJPEG(svg);
 ```
 
-#### Convertir a WebP
+#### Convert to WebP
 
 ```ts
 import { toWebP } from "peeps-generator";
@@ -367,7 +367,7 @@ import { toWebP } from "peeps-generator";
 const webpBuffer = await toWebP(svg);
 ```
 
-#### Convertir a AVIF
+#### Convert to AVIF
 
 ```ts
 import { toAvif } from "peeps-generator";
@@ -375,18 +375,18 @@ import { toAvif } from "peeps-generator";
 const avifBuffer = await toAvif(svg);
 ```
 
-Cada una de estas funciones recibe el string SVG y devuelve un buffer de imagen listo para:
+Each of these functions receives the SVG string and returns an image buffer ready for:
 
-- Guardar en disco
-- Enviar por API
-- Subir a un CDN
-- Usar en procesos de generación de asset
+- Saving to disk
+- Sending over an API
+- Uploading to a CDN
+- Using in asset generation workflows
 
 ---
 
-### Exportador universal (exportTo)
+### Universal exporter (`exportTo`)
 
-Además de las funciones unitarias, **Peeps Generator** expone un exportador universal que permite convertir el SVG al formato deseado usando una sola función.
+In addition to the individual functions, **Peeps Generator** exposes a universal exporter that allows converting the SVG to the desired format using a single function.
 
 ```ts
 import { exportTo } from "peeps-generator";
@@ -394,68 +394,65 @@ import { exportTo } from "peeps-generator";
 const buffer = await exportTo(svg, "png");
 ```
 
-#### Formatos soportados
+#### Supported formats
 
 - `"png"`
 - `"jpg"` / `"jpeg"`
 - `"webp"`
 - `"avif"`
 
-Este enfoque es útil cuando:
+This approach is useful when:
 
-- El formato se decide dinámicamente
-- Querés simplificar lógica condicional
-- Necesitás una API más genérica y expresiva
+- The format is decided dynamically
+- You want to simplify conditional logic
+- You need a more generic and expressive API
 
-El resultado es siempre un **Buffer**, independientemente del formato elegido.
+The result is always a **Buffer**, regardless of the chosen format.
 
 ---
 
-### Notas importantes sobre la exportación
+### Important notes about export
 
-- Las funciones de exportación funcionan en Node.js.
-- Internamente utilizan sharp.
-- Devuelven un Buffer listo para guardar en disco, enviar por red o procesar.
+- Export functions work in Node.js.
+- They internally use `sharp`.
+- They return a Buffer ready to be saved to disk, sent over the network, or processed.
 
-## ⚠️ Errores comunes y soluciones
+## ⚠️ Common errors and solutions
 
-### Error 500 en `/api` en producción (funciona en local)
+### 500 error in `/api` in production (works locally)
 
-**Síntomas**
+**Symptoms**
 
 - `POST /api 500 (Internal Server Error)`
-- La aplicación funciona correctamente en desarrollo local
-- En los logs de Vercel aparece un error similar a:
+- The application works correctly in local development
+- Vercel logs show an error similar to:
 
 ```text
 ENOENT: no such file or directory, open
 .../node_modules/peeps-generator/dist/assets/heads/SomeFile.svg
 ```
 
-### Causa
+### Cause
 
-`peeps-generator` carga archivos SVG desde su carpeta interna
-`dist/assets`.
+`peeps-generator` loads SVG files from its internal `dist/assets` folder.
 
-En entornos serverless (como Vercel), **Next.js no incluye automáticamente
-archivos estáticos que están dentro de `node_modules`**, a menos que se
-indique explícitamente durante el build.
+In serverless environments (such as Vercel), **Next.js does not automatically include static files that are inside `node_modules`**, unless they are explicitly specified during the build.
 
-Por eso, en producción la API no encuentra los SVG necesarios y falla.
+That is why, in production, the API cannot find the required SVGs and fails.
 
 ---
 
-### Solución
+### Solution
 
-1. **Forzar runtime Node.js en la ruta API**
+1. **Force the Node.js runtime in the API route**
 
    ```ts
    export const runtime = "nodejs";
    ```
 
-   **`peeps-generator` no es compatible con Edge Runtime.**
+   **`peeps-generator` is not compatible with the Edge Runtime.**
 
-2. **Incluir los assets del generador en next.config.ts**
+2. **Include the generator assets in `next.config.ts`**
 
    ```ts
    import type { NextConfig } from "next";
@@ -469,36 +466,35 @@ Por eso, en producción la API no encuentra los SVG necesarios y falla.
    export default nextConfig;
    ```
 
-3. **Volver a desplegar el proyecto**
+3. **Deploy the project again**
 
-Luego de aplicar los cambios:
+After applying the changes:
 
-- Si es necesario, limpiar la caché del build
-- Hacer un nuevo deploy en Vercel
+- If necessary, clear the build cache
+- Make a new deployment on Vercel
 
-## 🪶 Créditos y atribución
+## 🪶 Credits and attribution
 
-Los assets visuales utilizados por **Peeps Generator** están inspirados en
-**Open Peeps**, una colección de ilustraciones creada por Pablo Stanley.
+The visual assets used by **Peeps Generator** are inspired by **Open Peeps**, an illustration collection created by Pablo Stanley.
 
-Proyecto original:
+Original project:
 https://www.openpeeps.com/
 
-Esta librería no busca reemplazar ni redistribuir el proyecto original,
-sino ofrecer una forma programática de **componer, combinar y generar avatares**
-a partir de ilustraciones modulares.
+This library does not seek to replace or redistribute the original project,
+but to provide a programmatic way to **compose, combine, and generate avatars**
+from modular illustrations.
 
-Todo el mérito artístico pertenece a su autor original.
+All artistic credit belongs to the original author.
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto se distribuye bajo la licencia **MIT**.
+This project is distributed under the **MIT** license.
 
-Esto significa que podés:
+This means you can:
 
-- Usarlo en proyectos personales o comerciales
-- Modificarlo libremente
-- Redistribuirlo
-- Integrarlo en tus propias aplicaciones
+- Use it in personal or commercial projects
+- Modify it freely
+- Redistribute it
+- Integrate it into your own applications
 
-Siempre que se mantenga la nota de copyright y la licencia original.
+As long as the copyright notice and original license are retained.
